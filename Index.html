@@ -4,18 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GoCo Dynamics | Survivability Training for Helping Professionals</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap');
-</style>
 <style>
   :root {
     --black: #0a0a0a;
     --off-black: #111111;
     --charcoal: #1c1c1c;
-    --steel: #2e2e2e;
     --mid: #555;
     --muted: #888;
     --light: #c8c8c8;
@@ -24,681 +18,112 @@
     --accent-light: #e05020;
     --rule: rgba(255,255,255,0.08);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 4rem;
-    border-bottom: 1px solid var(--rule);
-    background: rgba(10,10,10,0.92);
-    backdrop-filter: blur(12px);
-  }
-
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.12em;
-    color: var(--white);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--light);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  .nav-cta {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--accent);
-    border: none;
-    padding: 0.65rem 1.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .nav-cta:hover { background: var(--accent-light); }
-
-  /* ── HERO ── */
-  #home {
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    padding: 0 4rem 6rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(200,65,10,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(200,65,10,0.06) 0%, transparent 60%),
-      var(--off-black);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--rule) 1px, transparent 1px),
-      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-  }
-
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .hero-headline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 9vw, 9rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 2rem;
-  }
-
-  .hero-headline .accent-line { color: var(--accent); }
-
-  .hero-sub {
-    font-size: 1.15rem;
-    font-weight: 300;
-    color: var(--light);
-    max-width: 540px;
-    margin-bottom: 3rem;
-    line-height: 1.7;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1.25rem;
-    align-items: center;
-  }
-
-  .btn-primary {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--accent);
-    border: none;
-    padding: 1rem 2.25rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--accent-light); }
-
-  .btn-ghost {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--light);
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 1rem 2.25rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-    display: inline-block;
-  }
-
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-stat-strip {
-    position: absolute;
-    right: 4rem;
-    bottom: 6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    z-index: 2;
-  }
-
-  .hero-stat {
-    text-align: right;
-  }
-
-  .hero-stat-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .hero-stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: block;
-  }
-
-  /* ── SECTION BASE ── */
-  section {
-    padding: 7rem 4rem;
-  }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-  }
-
-  .divider {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin: 0;
-  }
-
-  /* ── ABOUT ── */
-  #about {
-    background: var(--off-black);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-    margin-top: 3rem;
-  }
-
-  .about-left p {
-    font-size: 1.05rem;
-    color: var(--light);
-    margin-bottom: 1.5rem;
-    line-height: 1.75;
-  }
-
-  .about-left p strong {
-    color: var(--white);
-    font-weight: 500;
-  }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .credential-item {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    padding: 1.75rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .credential-item:first-child { border-top: 1px solid var(--rule); }
-
-  .credential-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    color: var(--accent);
-    line-height: 1;
-    flex-shrink: 0;
-    width: 2.5rem;
-    padding-top: 0.1rem;
-  }
-
-  .credential-text strong {
-    display: block;
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: var(--white);
-    margin-bottom: 0.25rem;
-  }
-
-  .credential-text span {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* ── SERVICES ── */
-  #services {
-    background: var(--black);
-  }
-
-  .services-intro {
-    max-width: 600px;
-    font-size: 1.05rem;
-    color: var(--light);
-    line-height: 1.75;
-    margin-bottom: 4rem;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border: 1px solid var(--rule);
-  }
-
-  .service-card {
-    padding: 2.75rem 2.25rem;
-    border-right: 1px solid var(--rule);
-    position: relative;
-    transition: background 0.25s;
-  }
-
+  body { background: #0a0a0a; color: #f5f3ef; font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.65; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: #f5f3ef; text-decoration: none; }
+  .nav-logo span { color: #c8410a; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #c8c8c8; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #c8410a; }
+  .nav-cta { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #f5f3ef; background: #c8410a; border: none; padding: 0.65rem 1.5rem; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: #e05020; }
+  #home { min-height: 100vh; display: flex; align-items: flex-end; padding: 0 4rem 6rem; position: relative; overflow: hidden; background: #111111; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(200,65,10,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 80%, rgba(200,65,10,0.06) 0%, transparent 60%), #111111; }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: #c8410a; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: #c8410a; }
+  .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 9vw, 9rem); line-height: 0.92; letter-spacing: 0.02em; color: #f5f3ef; margin-bottom: 2rem; }
+  .hero-headline .accent-line { color: #c8410a; }
+  .hero-sub { font-size: 1.15rem; font-weight: 300; color: #c8c8c8; max-width: 540px; margin-bottom: 3rem; line-height: 1.7; }
+  .hero-actions { display: flex; gap: 1.25rem; align-items: center; }
+  .btn-primary { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #f5f3ef; background: #c8410a; border: none; padding: 1rem 2.25rem; cursor: pointer; text-decoration: none; transition: background 0.2s; display: inline-block; }
+  .btn-primary:hover { background: #e05020; }
+  .btn-ghost { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #c8c8c8; background: transparent; border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.25rem; cursor: pointer; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: #c8410a; color: #c8410a; }
+  .hero-stat-strip { position: absolute; right: 4rem; bottom: 6rem; display: flex; flex-direction: column; gap: 2rem; z-index: 2; }
+  .hero-stat { text-align: right; }
+  .hero-stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: #c8410a; line-height: 1; }
+  .hero-stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: #888; display: block; }
+  section { padding: 7rem 4rem; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: #c8410a; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 1px; background: #c8410a; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 5rem); line-height: 0.95; letter-spacing: 0.02em; color: #f5f3ef; margin-bottom: 1.5rem; }
+  .divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 0; }
+  #about { background: #111111; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+  .about-left p { font-size: 1.05rem; color: #c8c8c8; margin-bottom: 1.5rem; line-height: 1.75; }
+  .about-left p strong { color: #f5f3ef; font-weight: 500; }
+  .about-right { display: flex; flex-direction: column; gap: 0; }
+  .credential-item { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .credential-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+  .credential-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #c8410a; line-height: 1; flex-shrink: 0; width: 2.5rem; padding-top: 0.1rem; }
+  .credential-text strong { display: block; font-weight: 500; font-size: 0.95rem; color: #f5f3ef; margin-bottom: 0.25rem; }
+  .credential-text span { font-size: 0.85rem; color: #888; line-height: 1.5; }
+  #services { background: #0a0a0a; }
+  .services-intro { max-width: 600px; font-size: 1.05rem; color: #c8c8c8; line-height: 1.75; margin-bottom: 4rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid rgba(255,255,255,0.08); }
+  .service-card { padding: 2.75rem 2.25rem; border-right: 1px solid rgba(255,255,255,0.08); position: relative; transition: background 0.25s; }
   .service-card:last-child { border-right: none; }
-
   .service-card:hover { background: rgba(200,65,10,0.05); }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #c8410a; transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .service-card:hover::before { transform: scaleX(1); }
-
-  .service-icon {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 1.25rem;
-    opacity: 0.7;
-  }
-
-  .service-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.04em;
-    color: var(--white);
-    margin-bottom: 0.75rem;
-  }
-
-  .service-desc {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--rule);
-    padding: 0.3rem 0.65rem;
-  }
-
-  /* ── GARRISON ── */
-  #garrison {
-    background: var(--charcoal);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .garrison-accent-bg {
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,65,10,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .garrison-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .garrison-left p {
-    font-size: 1.05rem;
-    color: var(--light);
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-  }
-
-  .garrison-left p strong { color: var(--white); font-weight: 500; }
-
-  .garrison-pill {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.4rem 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .garrison-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .outcome-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .outcome-row:first-child { border-top: 1px solid var(--rule); }
-
-  .outcome-icon {
-    width: 8px; height: 8px;
-    background: var(--accent);
-    flex-shrink: 0;
-    margin-top: 0.55rem;
-  }
-
-  .outcome-text strong {
-    display: block;
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: var(--white);
-    margin-bottom: 0.2rem;
-  }
-
-  .outcome-text span {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--off-black);
-  }
-
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    margin-top: 3rem;
-  }
-
-  .contact-left p {
-    font-size: 1.05rem;
-    color: var(--light);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
-
-  .contact-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 3rem;
-  }
-
-  .contact-detail-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .contact-detail-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-
-  .contact-detail-value {
-    font-size: 0.95rem;
-    color: var(--light);
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .form-group label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: var(--charcoal);
-    border: 1px solid var(--rule);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    padding: 0.85rem 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-    appearance: none;
-    -webkit-appearance: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--accent);
-  }
-
-  .form-group textarea {
-    resize: vertical;
-    min-height: 130px;
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: var(--mid);
-  }
-
-  .form-submit {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--accent);
-    border: none;
-    padding: 1.1rem 2.5rem;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background 0.2s;
-  }
-
-  .form-submit:hover { background: var(--accent-light); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--black);
-    border-top: 1px solid var(--rule);
-    padding: 2.5rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.12em;
-    color: var(--white);
-  }
-
-  .footer-logo span { color: var(--accent); }
-
-  .footer-copy {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--accent); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
+  .service-icon { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #c8410a; line-height: 1; margin-bottom: 1.25rem; opacity: 0.7; }
+  .service-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: #f5f3ef; margin-bottom: 0.75rem; }
+  .service-desc { font-size: 0.9rem; color: #888; line-height: 1.7; margin-bottom: 1.5rem; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; border: 1px solid rgba(255,255,255,0.08); padding: 0.3rem 0.65rem; }
+  #garrison { background: #1c1c1c; position: relative; overflow: hidden; }
+  .garrison-accent-bg { position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(200,65,10,0.08) 0%, transparent 70%); pointer-events: none; }
+  .garrison-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 1; }
+  .garrison-left p { font-size: 1.05rem; color: #c8c8c8; line-height: 1.75; margin-bottom: 1.5rem; }
+  .garrison-left p strong { color: #f5f3ef; font-weight: 500; }
+  .garrison-pill { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: #c8410a; border: 1px solid #c8410a; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
+  .garrison-right { display: flex; flex-direction: column; gap: 0; }
+  .outcome-row { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .outcome-row:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+  .outcome-icon { width: 8px; height: 8px; background: #c8410a; flex-shrink: 0; margin-top: 0.55rem; }
+  .outcome-text strong { display: block; font-weight: 500; font-size: 0.95rem; color: #f5f3ef; margin-bottom: 0.2rem; }
+  .outcome-text span { font-size: 0.85rem; color: #888; line-height: 1.5; }
+  #contact { background: #111111; }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 3rem; }
+  .contact-left p { font-size: 1.05rem; color: #c8c8c8; line-height: 1.75; margin-bottom: 2rem; }
+  .contact-detail { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; }
+  .contact-detail-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .contact-detail-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c8410a; }
+  .contact-detail-value { font-size: 0.95rem; color: #c8c8c8; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #888; }
+  .form-group input, .form-group select, .form-group textarea { background: #1c1c1c; border: 1px solid rgba(255,255,255,0.08); color: #f5f3ef; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #c8410a; }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: #555; }
+  .form-submit { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #f5f3ef; background: #c8410a; border: none; padding: 1.1rem 2.5rem; cursor: pointer; align-self: flex-start; transition: background 0.2s; }
+  .form-submit:hover { background: #e05020; }
+  footer { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.12em; color: #f5f3ef; }
+  .footer-logo span { color: #c8410a; }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #555; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: #c8410a; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .hero-eyebrow { animation: fadeUp 0.7s ease both; animation-delay: 0.1s; }
   .hero-headline { animation: fadeUp 0.7s ease both; animation-delay: 0.25s; }
   .hero-sub { animation: fadeUp 0.7s ease both; animation-delay: 0.4s; }
   .hero-actions { animation: fadeUp 0.7s ease both; animation-delay: 0.55s; }
-  .hero-stat-strip { animation: fadeUp 0.7s ease both; animation-delay: 0.7s; }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1.25rem 2rem; }
     .nav-links { display: none; }
     section { padding: 5rem 2rem; }
     #home { padding: 8rem 2rem 4rem; min-height: auto; }
-    .about-grid,
-    .garrison-layout,
-    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .about-grid, .garrison-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
     .services-grid { grid-template-columns: 1fr; }
-    .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .service-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .hero-stat-strip { display: none; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; }
     .form-row { grid-template-columns: 1fr; }
@@ -708,7 +133,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">Go<span>Co</span> Dynamics</a>
   <ul class="nav-links">
@@ -720,7 +144,6 @@
   <a href="#contact" class="nav-cta">Book a Seminar</a>
 </nav>
 
-<!-- HERO -->
 <section id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -732,41 +155,46 @@
       the Field.
     </h1>
     <p class="hero-sub">
-      Survivability training for social workers, case managers, and helping professionals. Situational awareness. Verbal de-escalation. Physical readiness — within the NASW code of ethics.
+      Survivability training for social workers, case managers, and helping professionals. Situational awareness. Verbal de-escalation. Physical readiness within the NASW code of ethics.
     </p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">See Our Training</a>
       <a href="#about" class="btn-ghost">About Angelo</a>
     </div>
   </div>
+  <div class="hero-stat-strip">
+    <div class="hero-stat">
+      <div class="hero-stat-number">26+</div>
+      <span class="hero-stat-label">Years of<br>Physical Discipline</span>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">MSW</div>
+      <span class="hero-stat-label">Graduate<br>San Diego State</span>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">BJJ</div>
+      <span class="hero-stat-label">Practitioner<br>and Instructor</span>
+    </div>
+  </div>
 </section>
 
 <hr class="divider">
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-label">About</div>
   <h2 class="section-title">Proactive.<br>Not Reactive.</h2>
   <div class="about-grid">
     <div class="about-left">
-      <p>
-        The social work field trains professionals to handle almost everything — <strong>except staying safe when things go sideways.</strong> The NASW code of ethics is solid on principles. It is silent on what to do when a client becomes a threat.
-      </p>
-      <p>
-        GoCo Dynamics fills that gap. Founded by Angelo Coates, MSW candidate and Brazilian Jiu-Jitsu practitioner, GoCo delivers survivability skills built specifically for the helping professions — grounded in the do-no-harm framework and designed for real field situations.
-      </p>
-      <p>
-        This is not self-defense theater. It is <strong>situational awareness, verbal de-escalation, and physical readiness</strong> — in that order, every time. The goal is never to fight. The goal is to get home.
-      </p>
-      <p>
-        GoCo is the professional arm. The mission runs through the Garrison Project, a youth mentorship nonprofit built on the same philosophy: build it before you need it.
-      </p>
+      <p>The social work field trains professionals to handle almost everything <strong>except staying safe when things go sideways.</strong> The NASW code of ethics is solid on principles. It is silent on what to do when a client becomes a threat.</p>
+      <p>GoCo Dynamics fills that gap. Founded by Angelo Coates, MSW candidate and Brazilian Jiu-Jitsu practitioner, GoCo delivers survivability skills built specifically for the helping professions grounded in the do-no-harm framework and designed for real field situations.</p>
+      <p>This is not self-defense theater. It is <strong>situational awareness, verbal de-escalation, and physical readiness</strong> in that order, every time. The goal is never to fight. The goal is to get home.</p>
+      <p>GoCo is the professional arm. The mission runs through the Garrison Project, a youth mentorship nonprofit built on the same philosophy: build it before you need it.</p>
     </div>
     <div class="about-right">
       <div class="credential-item">
         <div class="credential-num">01</div>
         <div class="credential-text">
-          <strong>MSW Candidate — San Diego State University</strong>
+          <strong>MSW Candidate - San Diego State University</strong>
           <span>Advanced standing. Clinical social work. Focus on youth development and trauma-informed practice.</span>
         </div>
       </div>
@@ -780,14 +208,14 @@
       <div class="credential-item">
         <div class="credential-num">03</div>
         <div class="credential-text">
-          <strong>Youth Program Experience — Evolve Treatment Center</strong>
+          <strong>Youth Program Experience - Evolve Treatment Center</strong>
           <span>Direct practice teaching CBT to adolescents. Field-tested curriculum development with at-risk youth populations.</span>
         </div>
       </div>
       <div class="credential-item">
         <div class="credential-num">04</div>
         <div class="credential-text">
-          <strong>Founder — The Garrison Project</strong>
+          <strong>Founder - The Garrison Project</strong>
           <span>Nonprofit initiative delivering holistic mentorship and jiu-jitsu-based resilience training to fatherless young men.</span>
         </div>
       </div>
@@ -795,7 +223,7 @@
         <div class="credential-num">05</div>
         <div class="credential-text">
           <strong>26+ Years of Physical Discipline</strong>
-          <span>Consistent training and nutrition practice since age 12. Proactive health and physical readiness is not a phase — it is the framework.</span>
+          <span>Consistent training and nutrition practice since age 12. Proactive health and physical readiness is not a phase it is the framework.</span>
         </div>
       </div>
     </div>
@@ -804,20 +232,15 @@
 
 <hr class="divider">
 
-<!-- SERVICES -->
 <section id="services">
   <div class="section-label">Services</div>
   <h2 class="section-title">What We<br>Deliver.</h2>
-  <p class="services-intro">
-    Every GoCo training is built around one question: what does a social worker actually need to stay safe? We deliver that — in seminars, workshops, and online refreshers that fit inside your agency's professional development calendar.
-  </p>
+  <p class="services-intro">Every GoCo training is built around one question: what does a social worker actually need to stay safe? We deliver that in seminars, workshops, and online refreshers that fit inside your agency's professional development calendar.</p>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-icon">01</div>
       <div class="service-name">Situational Awareness Training</div>
-      <p class="service-desc">
-        Read the room before it turns. Learn to identify escalation cues, environmental threats, and behavioral signals that precede violence — so you can act before a situation requires physical response.
-      </p>
+      <p class="service-desc">Read the room before it turns. Learn to identify escalation cues, environmental threats, and behavioral signals that precede violence so you can act before a situation requires physical response.</p>
       <div class="service-tags">
         <span class="tag">Half-day seminar</span>
         <span class="tag">Full-day workshop</span>
@@ -827,9 +250,7 @@
     <div class="service-card">
       <div class="service-icon">02</div>
       <div class="service-name">Verbal De-Escalation</div>
-      <p class="service-desc">
-        Words are your first tool. This training builds practical language and communication skills for high-tension client interactions — grounded in real field scenarios, not role-play theater.
-      </p>
+      <p class="service-desc">Words are your first tool. This training builds practical language and communication skills for high-tension client interactions grounded in real field scenarios, not role-play theater.</p>
       <div class="service-tags">
         <span class="tag">Seminar format</span>
         <span class="tag">Online refresher</span>
@@ -838,10 +259,8 @@
     </div>
     <div class="service-card">
       <div class="service-icon">03</div>
-      <div class="service-name">Physical Readiness & Safety</div>
-      <p class="service-desc">
-        When words stop working, you need a plan. Drawing on jiu-jitsu principles of leverage, control, and disengagement — within the NASW do-no-harm framework — this training covers how to exit a situation safely and professionally.
-      </p>
+      <div class="service-name">Physical Readiness and Safety</div>
+      <p class="service-desc">When words stop working, you need a plan. Drawing on jiu-jitsu principles of leverage, control, and disengagement within the NASW do-no-harm framework, this training covers how to exit a situation safely and professionally.</p>
       <div class="service-tags">
         <span class="tag">Hands-on workshop</span>
         <span class="tag">No martial arts required</span>
@@ -853,7 +272,6 @@
 
 <hr class="divider">
 
-<!-- GARRISON -->
 <section id="garrison">
   <div class="garrison-accent-bg"></div>
   <div class="garrison-layout">
@@ -861,15 +279,9 @@
       <div class="garrison-pill">The Garrison Project</div>
       <div class="section-label">Mission</div>
       <h2 class="section-title">The Work<br>That Matters.</h2>
-      <p>
-        GoCo Dynamics is the revenue engine. The Garrison Project is why it exists.
-      </p>
-      <p>
-        The Garrison Project is a nonprofit mentorship program built specifically for fatherless young men. Not another talking circle. Not a feelings journal. <strong>A structured environment where boys learn to build character, earn leadership, and develop real resilience — on the mat and in the classroom.</strong>
-      </p>
-      <p>
-        The program pairs jiu-jitsu training with concrete life skills: getting an ID, navigating college applications, mock interviews, financial basics, and academic support. Success is measured in grades, attendance, and outcomes — not feelings expressed in a session.
-      </p>
+      <p>GoCo Dynamics is the revenue engine. The Garrison Project is why it exists.</p>
+      <p>The Garrison Project is a nonprofit mentorship program built specifically for fatherless young men. Not another talking circle. Not a feelings journal. <strong>A structured environment where boys learn to build character, earn leadership, and develop real resilience on the mat and in the classroom.</strong></p>
+      <p>The program pairs jiu-jitsu training with concrete life skills: getting an ID, navigating college applications, mock interviews, financial basics, and academic support. Success is measured in grades, attendance, and outcomes not feelings expressed in a session.</p>
       <a href="#contact" class="btn-primary" style="margin-top: 0.5rem;">Partner with Us</a>
     </div>
     <div class="garrison-right">
@@ -877,7 +289,7 @@
         <div class="outcome-icon"></div>
         <div class="outcome-text">
           <strong>Movement-Based Resilience</strong>
-          <span>Jiu-jitsu teaches leverage, control, and working from bad positions — skills that translate directly off the mat.</span>
+          <span>Jiu-jitsu teaches leverage, control, and working from bad positions skills that translate directly off the mat.</span>
         </div>
       </div>
       <div class="outcome-row">
@@ -891,14 +303,14 @@
         <div class="outcome-icon"></div>
         <div class="outcome-text">
           <strong>Life Skills Curriculum</strong>
-          <span>IDs, applications, interviews, financial basics — the practical tools schools don't teach and fathers often do.</span>
+          <span>IDs, applications, interviews, financial basics the practical tools schools do not teach and fathers often do.</span>
         </div>
       </div>
       <div class="outcome-row">
         <div class="outcome-icon"></div>
         <div class="outcome-text">
           <strong>Male-Specific Mentorship</strong>
-          <span>Boys need spaces built for boys, led by men who understand what they're missing. That's the design — by intent.</span>
+          <span>Boys need spaces built for boys, led by men who understand what they are missing. That is the design by intent.</span>
         </div>
       </div>
       <div class="outcome-row">
@@ -914,19 +326,16 @@
 
 <hr class="divider">
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-label">Contact</div>
   <h2 class="section-title">Book a<br>Seminar.</h2>
   <div class="contact-layout">
     <div class="contact-left">
-      <p>
-        Ready to get your team trained? Looking to partner with the Garrison Project? Reach out directly. No gatekeeping, no sales pipeline — just Angelo.
-      </p>
+      <p>Ready to get your team trained? Looking to partner with the Garrison Project? Reach out directly. No gatekeeping, no sales pipeline just Angelo.</p>
       <div class="contact-detail">
         <div class="contact-detail-item">
           <span class="contact-detail-label">Location</span>
-          <span class="contact-detail-value">San Diego, CA &mdash; Available Nationally</span>
+          <span class="contact-detail-value">San Diego, CA - Available Nationally</span>
         </div>
         <div class="contact-detail-item">
           <span class="contact-detail-label">Organization</span>
@@ -938,19 +347,17 @@
         </div>
         <div class="contact-detail-item">
           <span class="contact-detail-label">Email</span>
-          <span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a6b646d6f666569656b7e6f794a736b62656524696567">[email&#160;protected]</a></span>
+          <span class="contact-detail-value">angelocoates@yahoo.com</span>
         </div>
       </div>
-      <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.65;">
-        GoCo works with social work agencies, nonprofits, school systems, and individual practitioners. Seminar pricing is based on group size and format. Online refresher courses are in development.
-      </p>
+      <p style="font-size: 0.88rem; color: #888; line-height: 1.65;">GoCo works with social work agencies, nonprofits, school systems, and individual practitioners. Seminar pricing is based on group size and format. Online refresher courses are in development.</p>
     </div>
     <div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Your name" required>
+            <label for="fname">Full Name</label>
+            <input type="text" id="fname" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label for="org">Organization</label>
@@ -958,16 +365,16 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com" required>
+          <label for="femail">Email Address</label>
+          <input type="email" id="femail" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
-          <label for="interest">I'm interested in</label>
+          <label for="interest">I am interested in</label>
           <select id="interest">
             <option value="" disabled selected>Select a training</option>
             <option>Situational Awareness Training</option>
             <option>Verbal De-Escalation Workshop</option>
-            <option>Physical Readiness & Safety</option>
+            <option>Physical Readiness and Safety</option>
             <option>Full-Day Combined Seminar</option>
             <option>Garrison Project Partnership</option>
             <option>Other / General Inquiry</option>
@@ -975,10 +382,10 @@
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about your team, your needs, and what you're looking for."></textarea>
+          <textarea id="message" placeholder="Tell me about your team, your needs, and what you are looking for."></textarea>
         </div>
         <button type="submit" class="form-submit">Send Message</button>
-        <div id="form-confirm" style="display:none; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--accent); padding-top: 0.5rem;">
+        <div id="form-confirm" style="display:none; font-family: DM Mono, monospace; font-size: 0.75rem; letter-spacing: 0.12em; color: #c8410a; padding-top: 0.5rem;">
           Message received. Expect a response within 48 hours.
         </div>
       </form>
@@ -986,7 +393,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Go<span>Co</span> Dynamics</div>
   <ul class="footer-links">
@@ -995,31 +401,31 @@
     <li><a href="#garrison">Garrison Project</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="footer-copy">&copy; 2025 GoCo Dynamics LLC &mdash; San Diego, CA</div>
+  <div class="footer-copy">2026 GoCo Dynamics LLC - San Diego, CA</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function handleSubmit(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const org = document.getElementById('org').value;
-    const email = document.getElementById('email').value;
-    const interest = document.getElementById('interest').value;
-    const message = document.getElementById('message').value;
-
-    const subject = encodeURIComponent('GoCo Dynamics Inquiry: ' + (interest || 'General'));
-    const body = encodeURIComponent(
-      'Name: ' + name +
-      '\nOrganization: ' + org +
-      '\nEmail: ' + email +
-      '\nInterest: ' + interest +
-      '\n\nMessage:\n' + message
-    );
-
+    var name = document.getElementById('fname').value;
+    var org = document.getElementById('org').value;
+    var email = document.getElementById('femail').value;
+    var interest = document.getElementById('interest').value;
+    var message = document.getElementById('message').value;
+    var subject = encodeURIComponent('GoCo Dynamics Inquiry: ' + (interest || 'General'));
+    var body = encodeURIComponent('Name: ' + name + '\nOrganization: ' + org + '\nEmail: ' + email + '\nInterest: ' + interest + '\n\nMessage:\n' + message);
     window.location.href = 'mailto:angelocoates@yahoo.com?subject=' + subject + '&body=' + body;
     document.getElementById('form-confirm').style.display = 'block';
     e.target.reset();
   }
-
-  // Subtle nav shrink on scroll
-  window.addEventListene
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '0.85rem 4rem';
+    } else {
+      nav.style.padding = '1.25rem 4rem';
+    }
+  });
+</script>
+</body>
+</html>
