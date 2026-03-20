@@ -2,6 +2,6 @@
   "name": "goco-dynamics",
   "version": "1.0.0",
   "scripts": {
-    "start": "npx serve . -p $PORT"
+    "start": "npx serve . --listen $PORT"
   }
 }
