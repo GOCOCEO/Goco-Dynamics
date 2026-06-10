@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GoCo Dynamics | Survivability Training for Helping Professionals</title>
+<meta name="description" content="Survivability training for social workers and helping professionals in San Diego. Situational awareness, verbal de-escalation, and physical readiness within the NASW code of ethics.">
+<meta property="og:title" content="GoCo Dynamics">
+<meta property="og:description" content="Built to survive the field. Safety training for social workers and helping professionals.">
+<meta property="og:type" content="website">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -347,30 +355,30 @@
         </div>
         <div class="contact-detail-item">
           <span class="contact-detail-label">Email</span>
-          <span class="contact-detail-value">angelocoates@yahoo.com</span>
+          <span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e6878881838a89858987928395a69f878e8989c885898b">[email&#160;protected]</a></span>
         </div>
       </div>
       <p style="font-size: 0.88rem; color: #888; line-height: 1.65;">GoCo works with social work agencies, nonprofits, school systems, and individual practitioners. Seminar pricing is based on group size and format. Online refresher courses are in development.</p>
     </div>
     <div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/YOUR_GOCO_FORM_ID" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="fname">Full Name</label>
-            <input type="text" id="fname" placeholder="Your name" required>
+            <input type="text" id="fname" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label for="org">Organization</label>
-            <input type="text" id="org" placeholder="Agency or school">
+            <input type="text" id="org" name="organization" placeholder="Agency or school">
           </div>
         </div>
         <div class="form-group">
           <label for="femail">Email Address</label>
-          <input type="email" id="femail" placeholder="your@email.com" required>
+          <input type="email" id="femail" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
           <label for="interest">I am interested in</label>
-          <select id="interest">
+          <select id="interest" name="interest">
             <option value="" disabled selected>Select a training</option>
             <option>Situational Awareness Training</option>
             <option>Verbal De-Escalation Workshop</option>
@@ -382,12 +390,9 @@
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about your team, your needs, and what you are looking for."></textarea>
+          <textarea id="message" name="message" placeholder="Tell me about your team, your needs, and what you are looking for."></textarea>
         </div>
         <button type="submit" class="form-submit">Send Message</button>
-        <div id="form-confirm" style="display:none; font-family: DM Mono, monospace; font-size: 0.75rem; letter-spacing: 0.12em; color: #c8410a; padding-top: 0.5rem;">
-          Message received. Expect a response within 48 hours.
-        </div>
       </form>
     </div>
   </div>
@@ -404,28 +409,5 @@
   <div class="footer-copy">2026 GoCo Dynamics LLC - San Diego, CA</div>
 </footer>
 
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    var name = document.getElementById('fname').value;
-    var org = document.getElementById('org').value;
-    var email = document.getElementById('femail').value;
-    var interest = document.getElementById('interest').value;
-    var message = document.getElementById('message').value;
-    var subject = encodeURIComponent('GoCo Dynamics Inquiry: ' + (interest || 'General'));
-    var body = encodeURIComponent('Name: ' + name + '\nOrganization: ' + org + '\nEmail: ' + email + '\nInterest: ' + interest + '\n\nMessage:\n' + message);
-    window.location.href = 'mailto:angelocoates@yahoo.com?subject=' + subject + '&body=' + body;
-    document.getElementById('form-confirm').style.display = 'block';
-    e.target.reset();
-  }
-  window.addEventListener('scroll', function() {
-    var nav = document.querySelector('nav');
-    if (window.scrollY > 60) {
-      nav.style.padding = '0.85rem 4rem';
-    } else {
-      nav.style.padding = '1.25rem 4rem';
-    }
-  });
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  window.addEventListener('
